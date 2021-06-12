@@ -31,7 +31,7 @@ url: https://processmatters.net  # the base hostname and protocol for your site,
 github_username:  processmatters
 
 # Build settings
-theme: minima
+theme: jekyll-theme-architect
 plugins:
   - jekyll-feed
 
