@@ -18,12 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
+title: Process Matters
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Process Matters exists to build the capacity of nonprofit staff,
+  organizations, coalitions and communities engaged in the struggle
+  to bring about a more safe, equitable, and humane society. We
+  specialize in meeting facilitation, leadership and team development,
+  and strategic and project planning.
 baseurl: "" # the subpath of your site, e.g. /blog
 domain: processmatters.net      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://processmatters.net  # the base hostname and protocol for your site, e.g. http://example.com
@@ -31,9 +33,13 @@ url: https://processmatters.net  # the base hostname and protocol for your site,
 github_username:  processmatters
 
 # Build settings
-theme: jekyll-theme-architect
+# theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+permalink: pretty
 
 # Exclude from processing.
 # The following items will not be processed, by default.
