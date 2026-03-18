@@ -1,12 +1,4 @@
-# processmatters.github.io
+# ProcessMatters Website
 
-# TODO:
-favicon.ico
+Static site for ProcessMatters (GitHub Pages).
 
-google business/adsense.
-
-search console.
-
-analytics.
-
-cloudflare.com
