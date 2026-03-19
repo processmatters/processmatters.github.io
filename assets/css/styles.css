@@ -467,6 +467,11 @@ body[data-page="coaching"] .card-media img.card-media-img--climber {
   .banner-image img {
     height: 220px;
   }
+
+  body[data-page="facilitation"] .banner-image img {
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 /* About */
