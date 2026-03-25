@@ -6,8 +6,8 @@ Static site for ProcessMatters, deployed on Cloudflare Pages.
 
 The contact form posts to the Cloudflare Pages Function at `/api/contact`.
 
-- If the Pages secret `MAILCHANNELS_API_KEY` is set, the function sends mail through the MailChannels Email API.
-- If that secret is not set yet, the function safely falls back to the existing FormSubmit endpoint so submissions keep working during setup.
+- The function sends mail through the MailChannels Email API.
+- The Pages secret `MAILCHANNELS_API_KEY` must be set before this works in production.
 
 ### Cloudflare Pages setup
 

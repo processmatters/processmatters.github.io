@@ -1,4 +1,3 @@
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/lsilverberg@processmatters.net";
 const MAILCHANNELS_ENDPOINT = "https://api.mailchannels.net/tx/v1/send";
 
 function getText(formData, key, maxLength) {
@@ -118,10 +117,6 @@ export async function onRequestPost(context) {
     return new Response(null, { status: 204 });
   }
 
-  if (!env.MAILCHANNELS_API_KEY) {
-    return Response.redirect(FORMSUBMIT_ENDPOINT, 307);
-  }
-
   const name = getText(formData, "name", 200);
   const email = getText(formData, "email", 320);
   const message = getText(formData, "message", 5000);
@@ -133,6 +128,14 @@ export async function onRequestPost(context) {
 
   if (!isValidEmail(email)) {
     return new Response("Invalid email address", { status: 400 });
+  }
+
+  if (!env.MAILCHANNELS_API_KEY) {
+    console.error("MAILCHANNELS_API_KEY is not configured");
+    return new Response(
+      "The contact form is not configured yet. Please email lsilverberg@processmatters.net directly.",
+      { status: 503 }
+    );
   }
 
   const payload = buildMailChannelsPayload({
