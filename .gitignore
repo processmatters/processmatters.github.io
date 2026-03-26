@@ -16,6 +16,9 @@
 !assets/**
 !functions/
 !functions/**
+!workers/
+!workers/**
 
 .DS_Store
 **/.DS_Store
+workers/**/.wrangler/

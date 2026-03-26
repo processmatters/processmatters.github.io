@@ -1,29 +1,24 @@
 # ProcessMatters Website
 
-Static site for ProcessMatters, deployed on Cloudflare Pages.
+Static site for ProcessMatters, deployed on Cloudflare Pages, with a separate Cloudflare Worker for contact-form email delivery.
 
 ## Contact form
 
-The contact form posts to the Cloudflare Pages Function at `/api/contact`.
+The contact form posts directly to the Cloudflare Worker at `https://processmatters-contact.processmatters.workers.dev`.
 
-- The function sends mail through the MailChannels Email API.
-- The Pages secret `MAILCHANNELS_API_KEY` must be set before this works in production.
+### Contact Worker
 
-### Cloudflare Pages setup
+Worker source lives in `workers/processmatters-contact/`.
 
-Add this secret in the Cloudflare Pages project settings:
+To redeploy it after edits:
 
-- `MAILCHANNELS_API_KEY`
+```sh
+cd "/Users/lisa/Documents/From inspiron/Work/D610 work/WEBSITE/website version 2/workers/processmatters-contact"
+wrangler deploy
+```
 
-Optional environment variables:
+The Worker uses Cloudflare Email Routing via the `send_email` binding configured in `workers/processmatters-contact/wrangler.toml`.
 
-- `CONTACT_FROM_EMAIL` defaults to `contact@processmatters.net`
-- `CONTACT_TO_EMAIL` defaults to `lsilverberg@processmatters.net`
-
-If you use MailChannels domain lock-down, add the TXT record they provide for `processmatters.net`.
-
-Cloudflare reference:
-- Pages Functions bindings: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
-
-MailChannels reference:
-- Email API overview: https://mailchannels.zendesk.com/hc/en-us/articles/4407613749531
+Cloudflare references:
+- Email Workers send email: https://developers.cloudflare.com/email-routing/email-workers/send-email-workers/
+- Wrangler configuration: https://developers.cloudflare.com/workers/wrangler/configuration/

@@ -1,0 +1,9 @@
+name = "processmatters-contact"
+main = "src/index.js"
+compatibility_date = "2026-03-25"
+workers_dev = true
+
+[[send_email]]
+name = "CONTACT_EMAIL"
+destination_address = "lsilverberg@processmatters.net"
+allowed_sender_addresses = [ "contact@processmatters.net" ]
